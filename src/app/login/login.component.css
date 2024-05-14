@@ -1,0 +1,38 @@
+#container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1{
+    color: black;
+    text-transform: uppercase;
+}
+
+input{
+    background-color: #8ef3fd73;
+    color: rgb(6, 6, 6);
+    padding: 10px;
+    border: 0px;
+    margin-bottom: 10px;
+    width:200px;
+}
+button{
+    width:100px;
+    text-align: center;
+    padding:10px 0;
+    background-color: blue;
+    color: aliceblue;
+    border: 0px;
+    outline: none;
+    margin-top: 40px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+:disabled{
+    background-color: gray;
+    cursor: not-allowed;
+}

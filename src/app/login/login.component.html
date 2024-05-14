@@ -1,0 +1,8 @@
+<div id="container" [formGroup]="form">
+    <h1>Login</h1>
+    <input type="text" formControlName="email" placeholder="Username"/>
+    <input type="password" formControlName="password" placeholder="Password"/>
+
+    <button mat-flat-button color="primary" [disabled]="!form.valid" (click)="login()">Login</button>
+    
+</div>
