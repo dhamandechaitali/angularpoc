@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
-import { UserpageComponent } from './userpage/userpage.component';
+import { UserfunctionModule } from './userfunction/userfunction.module';
+import { UserfunctionComponent } from './userfunction/userfunction.component';
 
 const routes: Routes = [
   {
     path:'',
     component: AdminComponent,
-    children:[{path:'', component: UserpageComponent}]
+    children:[
+      {path:'userfunction', component: UserfunctionComponent}
+  ]
   },
+  {
+    path:'userfunction', 
+    loadChildren: ()=>
+      import('../admin/userfunction/userfunction.module').then((m) => m.UserfunctionModule),
+  }
 ];
 
 @NgModule({

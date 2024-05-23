@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -19,18 +20,21 @@ export class LoginComponent {
   }
  );
 
- constructor(private authService: AuthService, private fb: FormBuilder, private router:Router){
+ constructor(private authService: AuthService, private fb: FormBuilder, private router:Router, private snackBar: MatSnackBar){
 
  }
 
+ showSuccessMessage(message: string){
+  this.snackBar.open(message, 'Close', {
+    duration: 3000
+  })
+}
  login(){
-  let user = this.authService.login(
-    this.form.value.email,
-    this.form.value.password
-  );
+  let user = this.authService.login(this.form.value.email,this.form.value.password);
 
   if(!user){
-    alert('Invalid username or password');
+    this.showSuccessMessage("Invalid username or password");
+   
   }else{
     this.router.navigateByUrl('/admin');
   }
