@@ -9,8 +9,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
-  // standalone:true,
-  // imports:[MatButtonModule]
 })
 export class LoginComponent {
  form:FormGroup = this.fb.group(
@@ -21,7 +19,6 @@ export class LoginComponent {
  );
 
  constructor(private authService: AuthService, private fb: FormBuilder, private router:Router, private snackBar: MatSnackBar){
-
  }
 
  showSuccessMessage(message: string){
