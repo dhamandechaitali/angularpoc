@@ -13,14 +13,9 @@ import { UserfunctionService } from '../../services/userfunction.service';
 })
 export class UserfunctionComponent {
   user: User[] = [];
-  
-  creditCardMaximumAmount: number = 0;
-  creditCardMaximumInterest: number = 0;
 
   constructor(private userfunctionService:UserfunctionService) {
-
       this.user =this.userfunctionService.getUsers() ;
-
       this.dataSource = new MatTableDataSource(this.user);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

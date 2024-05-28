@@ -12,19 +12,17 @@ import { UserfunctionService } from 'src/app/services/userfunction.service';
 export class DeleteComponent {
 
   userId!: Number;
-
   private destory$: Subject<void> = new Subject<void>();
 
   constructor(private router: ActivatedRoute,
     private route: Router,
     private matSnackBar : MatSnackBar,
-    private userfunctionService: UserfunctionService) {
-    this.userId = parseInt(this.router.snapshot.paramMap.get("id") || ''
-    );
-
-    this.userfunctionService.deleteUser(this.userId)
-    this.showSuccessMessage("User Details Deleted Successfully"); 
-    this.route.navigate(['admin/userfunction']);
+    private userfunctionService: UserfunctionService)
+  {
+      this.userId = parseInt(this.router.snapshot.paramMap.get("id") || '');
+      this.userfunctionService.deleteUser(this.userId)
+      this.showSuccessMessage("User Details Deleted Successfully"); 
+      this.route.navigate(['admin/userfunction']);
   }
 
   showSuccessMessage(message: string){
